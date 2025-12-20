@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: ecr14-marketplace
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/marketplace?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci
+    username: root
+    password: TextellentD210
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  sql:
+    init:
+      mode: always
+      continue-on-error: false
+
+cloudinary:
+  cloud-name: duapjumby
+  api-key: 811282516367178
+  api-secret: r6YSsufjwXoIKURdjgVKyEQBzro
+
+jwt:
+  secret: ${JWT_SECRET:ecr14-marketplace-secret-key-change-in-production-minimum-256-bits-required}
+  expiration: 604800000 # 7 days in milliseconds
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+logging:
+  level:
+    com.ecr14.marketplace: DEBUG
+    org.springframework.security: DEBUG
