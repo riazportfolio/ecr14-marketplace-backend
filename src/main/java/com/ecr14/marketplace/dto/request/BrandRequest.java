@@ -1,9 +1,6 @@
 package com.ecr14.marketplace.dto.request;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,4 +32,9 @@ public class BrandRequest {
 
     @NotEmpty(message = "At least one category is required")
     private List<String> categories;
+
+    @NotNull(message = "Minimum notice days is required")
+    @Min(value = 0, message = "Minimum notice days cannot be negative")
+    @Max(value = 30, message = "Minimum notice days cannot exceed 30 days")
+    private Integer minNoticeDays = 0;
 }

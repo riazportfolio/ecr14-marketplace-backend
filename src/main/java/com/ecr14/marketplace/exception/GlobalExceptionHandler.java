@@ -32,6 +32,35 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
+    @ExceptionHandler(BrandMismatchException.class)
+    public ResponseEntity<Map<String, Object>> handleBrandMismatchException(BrandMismatchException ex) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("error", "Brand Mismatch");
+        response.put("message", ex.getMessage());
+        response.put("currentBrandId", ex.getCurrentBrandId());
+        response.put("currentBrandName", ex.getCurrentBrandName());
+        response.put("attemptedBrandId", ex.getAttemptedBrandId());
+        response.put("attemptedBrandName", ex.getAttemptedBrandName());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+    @ExceptionHandler(InvalidDeliveryDateException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidDeliveryDateException(InvalidDeliveryDateException ex) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("error", "Invalid Delivery Date");
+        response.put("message", ex.getMessage());
+        response.put("requestedDate", ex.getRequestedDate().toString());
+        response.put("earliestDate", ex.getEarliestDate().toString());
+        response.put("minNoticeDays", ex.getMinNoticeDays());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
+    @ExceptionHandler(EmptyCartException.class)
+    public ResponseEntity<ErrorResponse> handleEmptyCartException(EmptyCartException ex) {
+        ErrorResponse error = new ErrorResponse("Empty Cart", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, Object> errors = new HashMap<>();

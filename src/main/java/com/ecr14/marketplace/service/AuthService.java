@@ -54,6 +54,7 @@ public class AuthService {
         User user = new User();
         user.setPhone(request.getPhone());
         user.setName(request.getName());
+        user.setApartmentNumber(request.getApartmentNumber());
         user.setRole(UserRole.CUSTOMER);
 
         user = userRepository.save(user);

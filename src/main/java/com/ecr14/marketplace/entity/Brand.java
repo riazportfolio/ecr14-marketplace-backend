@@ -54,6 +54,9 @@ public class Brand {
     @Column(name = "owner_id", nullable = false, length = 36)
     private String ownerId;
 
+    @Column(name = "min_notice_days", nullable = false)
+    private Integer minNoticeDays = 0;
+
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

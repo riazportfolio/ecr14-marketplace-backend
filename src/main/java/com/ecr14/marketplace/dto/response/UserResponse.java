@@ -15,6 +15,7 @@ public class UserResponse {
     private String role;
     private String name;
     private String brandId;
+    private String apartmentNumber;
 
     public static UserResponse fromEntity(User user) {
         return new UserResponse(
@@ -22,7 +23,8 @@ public class UserResponse {
                 user.getPhone(),
                 user.getRole().name().toLowerCase(),
                 user.getName(),
-                user.getBrandId()
+                user.getBrandId(),
+                user.getApartmentNumber()
         );
     }
 }

@@ -62,6 +62,7 @@ public class BrandService {
         brand.setPhone(request.getPhone());
         brand.setEmail(request.getEmail());
         brand.setCategories(request.getCategories());
+        brand.setMinNoticeDays(request.getMinNoticeDays());
         brand.setOwnerId(userId);
 
         // Upload logo to Cloudinary if provided
@@ -109,6 +110,7 @@ public class BrandService {
         brand.setPhone(request.getPhone());
         brand.setEmail(request.getEmail());
         brand.setCategories(request.getCategories());
+        brand.setMinNoticeDays(request.getMinNoticeDays());
 
         // Upload new logo to Cloudinary if provided
         if (logoFile != null && !logoFile.isEmpty()) {

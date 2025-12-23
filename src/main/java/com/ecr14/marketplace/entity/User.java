@@ -43,6 +43,9 @@ public class User {
     @Column(name = "brand_id", length = 36)
     private String brandId;
 
+    @Column(name = "apartment_number", length = 20)
+    private String apartmentNumber;
+
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

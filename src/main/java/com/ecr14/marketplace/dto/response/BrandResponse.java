@@ -20,6 +20,7 @@ public class BrandResponse {
     private String email;
     private List<String> categories;
     private String ownerId;
+    private Integer minNoticeDays;
 
     public static BrandResponse fromEntity(Brand brand) {
         return new BrandResponse(
@@ -30,7 +31,8 @@ public class BrandResponse {
                 brand.getPhone(),
                 brand.getEmail(),
                 brand.getCategories(),
-                brand.getOwnerId()
+                brand.getOwnerId(),
+                brand.getMinNoticeDays()
         );
     }
 }

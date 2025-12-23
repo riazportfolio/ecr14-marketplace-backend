@@ -17,4 +17,8 @@ public class RegisterRequest {
 
     @NotBlank(message = "Name is required")
     private String name;
+
+    @NotBlank(message = "Apartment number is required")
+    @Size(max = 20, message = "Apartment number must not exceed 20 characters")
+    private String apartmentNumber;
 }
