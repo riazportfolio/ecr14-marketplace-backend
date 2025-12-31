@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:8081"})
+@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:8081", "https://ecr14-marketplace.vercel.app"})
 public class OrderController {
 
     @Autowired
